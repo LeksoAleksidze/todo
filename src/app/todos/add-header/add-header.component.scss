@@ -1,0 +1,46 @@
+.todo-container {
+    display: flex;
+    input {
+        border: 1px solid #ccc;
+        outline: none;
+        height: 35px;
+        width: 200px;
+        border-radius: 5px;
+        margin-right: 30px;
+        font-size: 16px;
+        color: #000;
+        padding: 5px 13px;
+        color: #ccc;
+        &::placeholder {
+            font-size: 13px;
+            color: #ccc;
+        }
+    }
+    select {
+        cursor: pointer;
+        height: 35px;
+        width: 150px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #ccc;
+        padding: 5px 13px;
+        outline: none;
+        margin-right: 30px;
+    }
+    button {
+        width: 50px;
+        height: 35px;
+        border: none;
+        outline: none;
+        background-color: #000;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .3s ease;
+        border: 1px solid #000;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}

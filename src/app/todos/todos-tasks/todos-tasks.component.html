@@ -1,0 +1,104 @@
+<div class="main-container">
+    <app-add-header (sendTodoObj)=addNewTask($event)></app-add-header>
+    <div class="todos-container">
+        <!-- To-Do  -->
+        <div class="to-do-container">
+            <div class="to-do-header">
+                <i class="fa fa-bars"></i>
+                <span>To-Do</span>
+            </div>
+            <div class="to-do-body">
+                <div *ngIf="htmlTask.length > 0; else emtyBox">
+                    <div class="to-do-item" *ngFor="let i of htmlTask, let in = index">
+                        <div class="left-side">
+                            <span class="title">{{in+1}}. {{i.text}}</span>
+                            <div [ngSwitch]="i.status">
+                                <span *ngSwitchCase="'Easy'" class="badge easy">{{i.status}}</span>
+                                <span *ngSwitchCase="'Medium'" class="badge medium">{{i.status}}</span>
+                                <span *ngSwitchCase="'Hard'" class="badge hard">{{i.status}}</span>
+                            </div>
+
+                        </div>
+                        <div class="right-side">
+                            <div class="next-button" (click)="moveNext(in, 'todo-in-progress')">
+                                <button><i class="fa fa-caret-right"></i></button>
+                            </div>
+                            <div class="remove-button" (click)="deleteItem(in)">
+                                <button><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-template #emtyBox>
+                    <span>List is Empty</span>
+                </ng-template>
+            </div>
+        </div>
+        <!-- In-Progress  -->
+        <div class="to-do-container">
+            <div class="to-do-header">
+                <i class="fa fa-bars"></i>
+                <span>In Progress</span>
+            </div>
+            <div class="to-do-body">
+                <div *ngIf="htmlTasKInProgress.length > 0; else emtyBox">
+                    <div class="to-do-item" *ngFor="let i of htmlTasKInProgress, let in = index">
+                        <div class="left-side">
+                            <span class="title">{{in+1}}. {{i.text}}</span>
+                            <div [ngSwitch]="i.status">
+                                <span *ngSwitchCase="'Easy'" class="badge easy">{{i.status}}</span>
+                                <span *ngSwitchCase="'Medium'" class="badge medium">{{i.status}}</span>
+                                <span *ngSwitchCase="'Hard'" class="badge hard">{{i.status}}</span>
+                            </div>
+
+                        </div>
+                        <div class="right-side">
+                            <div class="prev-button" (click)="moveNext(in, 'todo-add', 'left-add')">
+                                <button><i class="fa fa-caret-left"></i></button>
+                            </div>
+                            <div style="margin-left: 10px;" class="next-button" (click)="moveNext(in, 'todo-done')">
+                                <button><i class="fa fa-caret-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-template #emtyBox>
+                    <span>List is Empty</span>
+                </ng-template>
+            </div>
+        </div>
+        <!-- Done  -->
+        <div class="to-do-container">
+            <div class="to-do-header">
+                <i class="fa fa-bars"></i>
+                <span>Done</span>
+            </div>
+            <div class="to-do-body">
+                <div *ngIf="htmlTasKDone.length > 0; else emtyBox">
+                    <div class="to-do-item" *ngFor="let i of htmlTasKDone, let in = index">
+                        <div class="left-side">
+                            <span class="title">{{in+1}}. {{i.text}}</span>
+                            <div [ngSwitch]="i.status">
+                                <span *ngSwitchCase="'Easy'" class="badge easy">{{i.status}}</span>
+                                <span *ngSwitchCase="'Medium'" class="badge medium">{{i.status}}</span>
+                                <span *ngSwitchCase="'Hard'" class="badge hard">{{i.status}}</span>
+                            </div>
+
+                        </div>
+                        <div class="right-side">
+                            <div class="prev-button" (click)="moveNext(in, 'todo-in-progress', 'left')">
+                                <button><i class="fa fa-caret-left"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ng-template #emtyBox>
+                    <span>List is Empty</span>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

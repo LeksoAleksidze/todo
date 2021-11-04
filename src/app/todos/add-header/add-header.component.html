@@ -1,0 +1,16 @@
+<div class="todo-container">
+    <div class="task-name-input">
+        <input type="text" #inputValue placeholder="Task Name" name="" id="">
+    </div>
+    <div class="todo-status">
+        <select>
+            <option value="" #selectValue disabled selected>Select</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+    </div>
+    <div class="add-button">
+        <button (click)="getInfo(inputValue.value)">Add</button>
+    </div>
+</div>
